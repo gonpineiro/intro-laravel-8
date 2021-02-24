@@ -5,7 +5,16 @@
     <div class="p-8 bg-gray-200 col-span-1">
         <ul flex- flex-col>
             <li class="font-medium text-sm text-gray-400 uppercase mb-4">Contenido</li>
-            ---
+            @foreach ($course->posts as $post)
+            <li class="flex items-center text-gray-600 mt-2">
+                {{$post->name}}
+                @if ($post->free)
+                <span class="text-xs text-gray-500 font-semibol bg-gray-300 px-2 rounded-fill ml-auto">
+                    Gratis
+                </span>
+                @endif
+            </li>
+            @endforeach
         </ul>
     </div>
     <div class="text-gray-700 col-span-2">
