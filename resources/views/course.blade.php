@@ -28,6 +28,20 @@
             <p class="text-gray-500 text-sm">{{ $course->user->name }} </p>
             <p class="text-gray-300 text-xs">{{ $course->created_at->diffForHumans() }} </p>
         </div>
+        <div class="grid grid-cols-2 gap-4 my-8">
+            @foreach ($course->similar() as $course)
+            <div class="bg-white shadow-lg rounded-lg px-4 py-6 text-center">
+                <a href="{{ route('course', $course->slug) }}">
+                    <img src="{{ $course->image }}" class="rounded-md mb-2" />
+                    <h2 class="text-lg text-gray-600 truncate uppercase"> {{ $course->name }}</h2>
+                    <h3 class="text-md text-gray-500">{{ $course->excerpt }}</h3>
+
+                    <img src="{{ $course->user->avatar }}" class="rounded-full mx-auto h-16 w-16 mt-4">
+
+                </a>
+            </div>
+            @endforeach
+        </div>
     </div>
 </div>
 <div class="text-center mt-4">
