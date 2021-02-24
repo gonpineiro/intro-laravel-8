@@ -14,8 +14,6 @@ class CreatePostsTable extends Migration
 
             $table->string('name');
             $table->boolean('free')->default(0);
-            $table->string('image');
-            $table->text('description');
 
             $table->timestamps();
 
